@@ -1,0 +1,11 @@
+.gradient-button {
+  background: linear-gradient(180deg, #8255A1 0%, #FF5555 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(180deg, #8255A1 0%, #FF5555 100%);
+  color: transparent;
+}

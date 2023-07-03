@@ -1,0 +1,79 @@
+<!-- <div class="xl:hidden">
+  <button (click)="toggleSidebar()" class="text-black2Color focus:outline-none">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M2 4.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1h-15a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1h-15a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1h-15a.5.5 0 0 1-.5-.5z"/>
+    </svg>
+  </button>
+</div> -->
+<!-- [ngClass]="{'hidden': !isSidebarHidden}"  -->
+
+<main id="sidebar" class=" flex-none w-72 md:block  md:z-20 overflow-x-hidden h-full  dark:bg-darkBlueColor bg-textColor p-2">
+  <div class="px-2 py-5">
+    <img [src]="themeService.isDarkMode  ? './assets/svgs/connectaSvg.svg' : './assets/svgs/lightconnectasvg.svg'" alt="Connecta Logo">
+  </div>
+
+  <div class="w-11/12 p-2">
+    <div
+      class="h-full flex items-center border-greyColor border pl-2 py-3 rounded-lg dark:bg-greyColor bg-textColor shadow-md shadow-gray-400 dark:shadow-none">
+      <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full mr-4"
+        src="./assets/svgs/connectaIcon.svg">
+      <div class="flex-grow">
+        <h2 class="dark:text-textColor text-black2Color text-base leading-6 font-medium">Hyder Ali Afzal</h2>
+        <p class="dark:text-gray-500 text-black2Color font-normal text-sm">Free account</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex-col flex-1 transition-opacity duration-500 overflow-y-auto -mr-2 ">
+    <div class="flex flex-col  py-2 dark:text-textColor  text-black2Color text-sm font-normal">
+      <ng-container *ngFor="let item of allChatList">
+      <div  (click)="loadChat(item)"
+        class="flex py-3 px-3 items-center  relative rounded-md dark:hover:bg-greyColor hover:bg-lightText cursor-pointer group">
+        <img alt="team" class="mr-4 w-4 h-4 text-black2Color"
+          [src]="themeService.isDarkMode ? './assets/svgs/sms.svg' : './assets/svgs/lightsms.svg'" alt="Connecta Logo">
+        <p class="flex-1 text-ellipsis max-h-5 overflow-hidden relative">{{item.title}}</p>
+      </div>
+      </ng-container>
+      <div class="p-2">
+        <button (click)="startChat()"
+          class="gradient-button flex p-3 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md  h-11 flex-shrink-0 flex-grow w-10/12">
+          <img alt="team" class="h-4 w-4" src="./assets/svgs/addIcon.svg">Start a new chat</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="border-t border-white/20 ">
+    <div class="flex flex-col  py-2 dark:text-textColor text-black2Color text-sm font-normal">
+      <div
+        class="flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
+        <!-- <div class="flex pl-8 pt-2 pb-6"> -->
+        <img alt="team" class="mr-4" [src]="themeService.isDarkMode ? './assets/svgs/delete.svg' : './assets/svgs/lightdelete.svg'">
+        <p class="">Clear all conversations </p>
+      </div>
+      <div (click)="toogleMode.emit()"
+        class="flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
+        <img alt="team" class="mr-4" [src]="themeService.isDarkMode ? './assets/svgs/light.svg' : './assets/svgs/Llight.svg'">
+        <p >Switch {{themeService.isDarkMode? 'Light Mode': 'Dark Mode'}} </p>
+      </div>
+      <div
+        class="flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
+        <img alt="team" class="mr-4"
+          [src]="themeService.isDarkMode ? './assets/svgs/upgrade.svg' : './assets/svgs/lightupgrade.svg'">
+        <p class="">Upgrade to Cosmo Pro </p>
+      </div>
+      <div
+        class="flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
+        <img alt="team" class="mr-4" [src]="themeService.isDarkMode ? './assets/svgs/updates.svg' : './assets/svgs/lightupdate.svg'">
+        <p class="">Uptades & FAQ </p>
+      </div>
+      <div
+        class="flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
+        <img alt="team" class="mr-4" src="./assets/svgs/logout.svg">
+        <p class="">Log out </p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+

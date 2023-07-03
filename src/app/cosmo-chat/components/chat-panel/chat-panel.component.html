@@ -1,0 +1,183 @@
+<!-- <div
+  class="dark:text-textColor text-black2Color w-full mx-auto md:max-w-2xl lg:max-w-4xl md:h-full md:flex md:flex-col px-6 dark:text-gray-100">
+  <div class="relative flex justify-center py-14">
+    <input type="text"
+      class=" relative bg-grey2 border border-greyColor border-2 rounded-lg shadow-sm py-4 pl-10 pr-14 focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-11/12"
+      placeholder="Example: 'Explain quantum computing in simple terms'">
+    <span class="absolute inset-x-0  top-16 right-12 justify-end flex items-center">
+      <button class="gradient-button px-2 py-3 rounded-md">
+        <img alt="team" class="pl-2 flex items-center" src="./assets/svgs/send.svg">
+      </button>
+    </span>
+  </div>
+</div> -->
+
+<div class="h-[calc(100vh-100px)]">
+  <div class="h-full overflow-y-auto mr-5 mt-5 ">
+    <div class="md:max-w-2xl lg:max-w-3xl 2xl:max-w-7xl 2xl:mx-auto w-full pl-10 2xl:pl-0 pr-7 2xl:pr-24 ">
+
+      <div class="flex flex-col text-sm ">
+        <div class="group w-full dark:text-textColor text-black2Color border-b border-black/10 relative ">
+          <!-- <div class="flex  text-base  md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl 2xl:max-w-7xl 2xl:mx-auto md:py-6 ">
+            <div class="flex-shrink-0 flex flex-col relative items-end">
+              <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full mr-4"
+                src="./assets/svgs/connectaIcon.svg">
+            </div>
+            <div class="flex flex-col gap-3">
+
+              <div
+                class=" relative  w-auto max-w-md 2xl:max-w-xl flex items-center  border-greyColor border  pl-2 py-3  rounded-bl-lg rounded-br-lg rounded-tr-lg  dark:dark:bg-greyColor bg-textColor bg-textColor talk-bubble tri-right left-top "
+                [ngClass]="{ 'dark-mode': themeService.isDarkMode }">
+                <span class="left-clip absolute top-0 w-0.5 h-1.5 bg-textColor dark:bg-greyColor"></span>
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">Hello, Connekta is a powerful
+                  marketing platform designed to
+                  help brands and agencies manage all their marketing needs, from handling requests to executing
+                  campaigns.   </p>
+              </div>
+
+              <div
+                class=" w-auto max-w-fit px-1 flex items-center border-greyColor border pl-2 py-3  rounded-lg  dark:bg-greyColor bg-textColor ">
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">I hope this is help full </p>
+              </div>
+              <div
+                class=" w-auto max-w-fit px-1 flex items-center border-greyColor border pl-2 py-3  rounded-lg  dark:bg-greyColor bg-textColor ">
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">Is there anything else you like to
+                  know </p>
+              </div>
+              <div
+                class=" w-auto max-w-fit px-1 flex items-center border-greyColor border pl-2 py-3  rounded-lg  dark:bg-greyColor bg-textColor ">
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">Feel free to ask </p>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="flex  text-base  md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl md:py-6 ">
+            <div class="flex-shrink-0 flex flex-col relative items-end">
+              <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full mr-4"
+                src="./assets/svgs/connectaIcon.svg">
+            </div>
+
+            <div
+              class=" w-auto max-w-md flex items-center border-greyColor border pl-2 py-1  rounded-bl-lg rounded-br-lg rounded-tr-lg  dark:bg-greyColor bg-textColor talk-bubble tri-right left-top "
+              [ngClass]="{ 'dark-mode': themeService.isDarkMode }">
+              <span class="left-clip absolute top-0 w-0.5 h-1.5 bg-textColor dark:bg-greyColor "></span>
+              <p class="dark:text-textColor text-black2Color font-extrabold text-base px-2">. . . </p>
+            </div>
+          </div> -->
+
+          <!-- <div
+            class="flex  text-base justify-end  md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl 2xl:max-w-7xl 2xl:mx-auto md:py-6 lg:px-0 ">
+            <div class="relative flex max-w-md flex-col gap-1 md:gap-3 ">
+              <div *ngFor="let item of activeChat.chat"
+                class=" flex items-center border-greyColor border pl-2 py-3  rounded-bl-lg rounded-br-lg rounded-tl-lg  dark:bg-greyColor bg-textColor talk-bubble tri-right round border right-top "
+                [ngClass]="{ 'dark-mode': themeService.isDarkMode }">
+                <div class="talktext ">
+                  <span class="right-clip absolute top-0 w-0.5 h-1.5 bg-textColor dark:bg-greyColor"></span>
+                  <p class="dark:text-textColor text-black2Color font-normal text-sm px-2">{{item.message}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex-shrink-0 flex flex-col relative items-end">
+              <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full ml-4"
+                src="./assets/svgs/user-icon.svg" />
+            </div>
+          </div> -->
+
+          <div *ngFor="let item of activeChat.chat">
+
+            <div *ngIf="item.type==='user'"
+              class="flex  text-base justify-end  md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl 2xl:max-w-7xl 2xl:mx-auto md:py-6 lg:px-0 ">
+              <div class="relative flex max-w-md flex-col gap-1 md:gap-3 ">
+                <div
+                  class=" flex items-center border-greyColor border pl-2 py-3  rounded-bl-lg rounded-br-lg rounded-tl-lg  dark:bg-greyColor bg-textColor talk-bubble tri-right round border right-top "
+                  [ngClass]="{ 'dark-mode': themeService.isDarkMode }">
+                  <div class="talktext ">
+                    <span class="right-clip absolute top-0 w-0.5 h-1.5 bg-textColor dark:bg-greyColor"></span>
+                    <p class="dark:text-textColor text-black2Color font-normal text-sm px-2">{{item.message}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-shrink-0 flex flex-col relative items-end">
+                <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full ml-4"
+                  src="./assets/svgs/user-icon.svg" />
+              </div>
+            </div>
+
+            <div *ngIf="item.type==='cosmo'"
+              class="flex  text-base  md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl md:py-6 ">
+              <div class="flex-shrink-0 flex flex-col relative items-end">
+                <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full mr-4"
+                  src="./assets/svgs/connectaIcon.svg">
+              </div>
+
+              <div
+                class=" w-auto max-w-md flex items-center border-greyColor border pl-2 py-3  rounded-bl-lg rounded-br-lg rounded-tr-lg  dark:bg-greyColor bg-textColor talk-bubble tri-right left-top "
+                [ngClass]="{ 'dark-mode': themeService.isDarkMode }">
+                <span class="left-clip absolute top-0 w-0.5 h-1.5 bg-textColor dark:bg-greyColor "></span>
+                <p class="dark:text-textColor text-black2Color font-normal text-sm  px-2">{{item.message}}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="flex  text-base  md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl 2xl:max-w-7xl 2xl:mx-auto md:py-6 ">
+            <div class="flex-shrink-0 flex flex-col relative items-end">
+              <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full mr-4"
+                src="./assets/svgs/connectaIcon.svg">
+            </div>
+            <div class="flex flex-col gap-3">
+
+              <div
+                class=" relative  w-auto max-w-md 2xl:max-w-xl flex items-center  border-greyColor border  pl-2 py-3  rounded-bl-lg rounded-br-lg rounded-tr-lg  dark:dark:bg-greyColor bg-textColor bg-textColor talk-bubble tri-right left-top "
+                [ngClass]="{ 'dark-mode': themeService.isDarkMode }">
+                <span class="left-clip absolute top-0 w-0.5 h-1.5 bg-textColor dark:bg-greyColor"></span>
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">Hello, Connekta is a powerful
+                  marketing platform designed to
+                  help brands and agencies manage all their marketing needs, from handling requests to executing
+                  campaigns.   </p>
+              </div>
+
+              <div
+                class=" w-auto max-w-fit px-1 flex items-center border-greyColor border pl-2 py-3  rounded-lg  dark:bg-greyColor bg-textColor ">
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">I hope this is help full </p>
+              </div>
+              <div
+                class=" w-auto max-w-fit px-1 flex items-center border-greyColor border pl-2 py-3  rounded-lg  dark:bg-greyColor bg-textColor ">
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">Is there anything else you like to
+                  know </p>
+              </div>
+              <div
+                class=" w-auto max-w-fit px-1 flex items-center border-greyColor border pl-2 py-3  rounded-lg  dark:bg-greyColor bg-textColor ">
+                <p class="dark:text-textColor text-black2Color font-normal text-sm">Feel free to ask </p>
+              </div>
+            </div>
+
+          </div> -->
+          <div class="h-32 md:h-48 flex-shrink-0"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-full pl-10">
+    <div class="dark:text-textColor text-black2Color w-full md:max-w-2xl lg:max-w-3xl 2xl:max-w-7xl 2xl:mx-auto">
+      <div class="relative flex py-14">
+        <input type="text" [(ngModel)]=userMessage (keydown)="onKeyDown($event)"
+          class="relative dark:bg-grey2 bg-textColor border border-greyColor border-2 rounded-lg shadow-sm py-4 pl-10 pr-14 focus:outline-none  focus:border-transparent w-11/12"
+          placeholder="">
+        <span class="absolute inset-y-0  top-0 right-[4.7rem] 2xl:right-28 justify-end flex items-center">
+          <button (click)="sendChatInput()" class="gradient-button px-2 py-3 rounded-md">
+            <img alt="team" class="pl-2 flex items-center" src="./assets/svgs/send.svg">
+          </button>
+        </span>
+      </div>
+    </div>
+    <p class="font-light  mt-4 dark:text-textColor  text-black2Color text-sm absolute bottom-4 left-10 ">© Copyright
+      2023 Connekta
+      Holdings
+      Pty Ltd. All rights reserved.</p>
+
+  </div>
+</div>
