@@ -11,7 +11,7 @@ export class ChatPanelComponent {
   isDarkMode: boolean;
   userMessage: string = '';
   activeChat: any = this.chatService.activeChat;
-  constructor(public themeService: MyGlobalService, private chatService: ChatServiceService) {
+  constructor(public themeService: MyGlobalService, public chatService: ChatServiceService) {
     this.isDarkMode = this.themeService.isDarkMode;
     this.chatService.getChatState().subscribe(data => {
       this.activeChat = data.activeChat;
@@ -21,6 +21,7 @@ export class ChatPanelComponent {
     this.chatService.message = this.userMessage;
     this.chatService.sendChat();
     this.userMessage = ''
+    // this.loading = true
   }
 
   onKeyDown(event: KeyboardEvent) {
@@ -28,6 +29,7 @@ export class ChatPanelComponent {
       this.chatService.message = this.userMessage;
       this.chatService.sendChat();
       this.userMessage = ''
+      // this.loading = true
     }
   }
 }

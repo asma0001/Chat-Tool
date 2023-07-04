@@ -10,6 +10,7 @@ import { ChatComponent } from './cosmo-chat/components/chat/chat.component';
 import { ChatPanelComponent } from './cosmo-chat/components/chat-panel/chat-panel.component';
 import { MyGlobalService } from './cosmo-chat/service/my-global-service.service';
 import { ChatServiceService } from './cosmo-chat/service/chat-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ChatServiceService } from './cosmo-chat/service/chat-service.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [MyGlobalService,ChatServiceService],
   bootstrap: [AppComponent]
