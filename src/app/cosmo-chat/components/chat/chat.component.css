@@ -9,3 +9,11 @@
   background-image: linear-gradient(180deg, #8255A1 0%, #FF5555 100%);
   color: transparent;
 }
+
+.qText{
+  background: linear-gradient(0deg, #676767, #676767),
+  linear-gradient(0deg, rgba(217, 217, 217, 0.05), rgba(217, 217, 217, 0.05));
+}
+
+
+

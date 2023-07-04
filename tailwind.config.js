@@ -14,7 +14,9 @@ module.exports = {
         textColor: '#E5E5E5',
         lightText: '#bdbfc1',
         greyColor: '#373F4B',
+        greyColor1: '#676767',
         grey2: '#1B2432',
+        red: '#FF5555',
       },
       fontFamily: {
         graphik: ['Graphik', 'sans-serif'],

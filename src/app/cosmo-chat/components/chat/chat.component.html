@@ -1,58 +1,91 @@
 <div class=" w-full h-full flex items-center justify-center">
   <div
-    class="dark:text-textColor  text-black2Color w-full  h-max mx-auto md:max-w-2xl lg:max-w-3xl xl:max-w-3xl 2xl:max-w-6xl  md:flex md:flex-col px-6 ">
-    <h1
-      class="xs:text-xs sm:text-lg md:text-2xl lg:text-2xl xl:text-4xl 2xl:text-4xl dark:text-textColor  text-black2Color  font-semibold text-center mt-7 lg:mt-2 mb-5 flex items-center justify-center">
-      Hi I’m&nbsp;<span class="gradient-text font-bold">
-        Cosmo</span> , your marketing assistant!</h1>
-    <p
-      class=" xs:text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-4xl text-lg font-normal dark:text-textColor  text-black2Color flex justify-center ">
-      How can I help you?</p>
-    <div class="relative flex justify-center py-14">
-      <input type="text" [(ngModel)]= "message" (keydown)="onKeyDown($event)"
-        class=" dark:text-lightText  text-black2Color  dark:bg-grey2 bg-textColor border border-greyColor border shadow-lg rounded-lg shadow-sm py-4 pl-10 pr-14 focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-11/12"
+    class="dark:text-textColor  text-black2Color w-full xl:h-full 2xl:h-[60%] flex justify-around mx-auto md:max-w-2xl lg:max-w-3xl xl:max-w-3xl 2xl:max-w-6xl  md:flex md:flex-col px-6 ">
+
+    <div>
+      <h1
+        class="xs:text-xs sm:text-lg md:text-2xl lg:text-2xl xl:text-4xl 2xl:text-4xl dark:text-textColor  text-black2Color  font-semibold text-center mt-7 lg:mt-2 mb-5 flex items-center justify-center">
+        Hi I’m&nbsp;<span class="gradient-text font-bold">
+          Cosmo</span> , your marketing assistant!</h1>
+      <p
+        class=" xs:text-xs sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-4xl text-lg font-normal dark:text-textColor  text-black2Color flex justify-center ">
+        How can I help you?</p>
+    </div>
+
+    <div class="flex justify-center  text-center gap-3.5">
+      <div class="flex flex-col mb-8 md:mb-auto gap-2 items-center sm:max-w-md ">
+        <img alt="team" class="w-4 h-4 "
+          [src]="themeService.isDarkMode ? './assets/svgs/example.svg' : './assets/svgs/lightupgrade.svg'">
+        <h1 class="flex gap-3 items-center m-auto text-md font-medium md:flex-col md:gap-2 ">Examples</h1>
+        <div
+          class=" w-auto max-w-fit px-1 flex items-center border-greyColor1 border border-solid px-3 rounded  dark:bg-greyColor bg-textColor ">
+          <p class="  dark:text-textColor text-black2Color font-light text-sm">What is Connekta?</p>
+        </div>
+        <div
+          class=" w-auto max-w-fit px-1 flex items-center border-greyColor1 border border-solid px-3 rounded  dark:bg-greyColor bg-textColor ">
+          <p class="  dark:text-textColor text-black2Color font-light text-sm">How can I place my order? </p>
+        </div>
+        <div
+          class=" w-auto max-w-fit px-1 flex items-center border-greyColor1 border border-solid px-3 rounded  dark:bg-greyColor bg-textColor ">
+          <p class="  dark:text-textColor text-black2Color font-light text-sm">How can I request a demo? </p>
+        </div>
+        <!-- <p class="font-light   dark:text-lightText  text-black2Color text-sm  text-center px-3">Cosmo will give you
+          clear
+          and precise answers to your connekta problems</p> -->
+      </div>
+      <div class="flex flex-col mb-8 md:mb-auto gap-2 items-center sm:max-w-md ">
+        <img alt="team" class="w-4 h-4"
+          [src]="themeService.isDarkMode ? './assets/svgs/capabilities.svg' : './assets/svgs/lightlocation.svg'">
+        <h1 class="flex gap-3 items-center m-auto text-md font-medium md:flex-col md:gap-2 ">Capabilities</h1>
+        <div
+          class=" w-auto max-w-fit px-1 flex items-center border-greyColor1 border border-solid px-3 rounded  dark:bg-greyColor bg-textColor ">
+          <p class="  dark:text-textColor text-black2Color font-light text-sm">Maintain chat history
+          </p>
+        </div>
+        <div
+          class=" w-auto max-w-fit px-1 flex items-center border-greyColor1 border border-solid px-3 rounded  dark:bg-greyColor bg-textColor ">
+          <p class="  dark:text-textColor text-black2Color font-light text-sm">Save uploaded files in database</p>
+        </div>
+        <!-- <p class="font-light  dark:text-lightText  text-black2Color text-sm overflow-hidden text-center px-3">Cosmo will
+          specifically
+          give personalised answers to you queries</p> -->
+      </div>
+      <div class="flex flex-col mb-8 md:mb-auto gap-2 items-center sm:max-w-md ">
+        <img alt="team" class="w-4 h-4"
+          [src]="themeService.isDarkMode ? './assets/svgs/limitations.svg' : './assets/svgs/lighttrending.svg'">
+        <h1 class="flex gap-3 items-center m-auto text-md font-medium md:flex-col md:gap-2 ">Limitations
+        </h1>
+        <div
+          class=" w-auto max-w-fit px-1 flex items-center border-greyColor1 border border-solid px-3 rounded  dark:bg-greyColor bg-textColor ">
+          <p class="  dark:text-textColor text-black2Color font-light text-sm">Large files can take time</p>
+        </div>
+        <div
+          class="max-w-[70%] px-1 flex items-center border-greyColor1 border border-solid px-3 rounded  dark:bg-greyColor bg-textColor ">
+          <p class="  dark:text-textColor text-black2Color font-light text-sm">Make sure your internet speed is good</p>
+        </div>
+
+        <!-- <p class="font-light  dark:text-lightText  text-black2Color text-sm overflow-hidden text-center px-3">Cosmo is
+          an
+          efficient
+          tool which will help increase your understanding about connekta</p> -->
+      </div>
+    </div>
+
+    <div class="relative flex justify-center">
+      <input type="text" [(ngModel)]="message" (keydown)="onKeyDown($event)"
+        class=" dark:text-lightText  text-black2Color  dark:bg-grey2 bg-textColor border border-greyColor border shadow-lg rounded-lg shadow-sm py-4 pl-10 pr-14 focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-[80%]"
         placeholder="Example: 'Explain quantum computing in simple terms'">
-      <span class="absolute inset-y-0  top-0 right-10 justify-end flex items-center">
-        <button (click)="startChatInput()"   class="gradient-button px-2 py-3 rounded-md">
+      <span class="absolute inset-y-0  top-0 right-20 justify-end flex items-center">
+        <button (click)="startChatInput()" class="gradient-button px-2 py-3 rounded-md">
           <img alt="team" class="pl-2 flex items-center" src="./assets/svgs/send.svg">
         </button>
       </span>
     </div>
-
-    <div class="md:flex pt-10 text-center gap-3.5 ">
-      <div class="flex flex-col mb-8 md:mb-auto gap-3.5 items-center sm:max-w-md m-auto">
-        <img alt="team" class="w-6 h-6 "
-          [src]="themeService.isDarkMode ? './assets/svgs/upgrade.svg' : './assets/svgs/lightupgrade.svg'">
-        <h1 class="flex gap-3 items-center m-auto text-md font-medium md:flex-col md:gap-2 ">Clear and precise</h1>
-        <p class="font-light   dark:text-lightText  text-black2Color text-sm  text-center px-3">Cosmo will give you
-          clear
-          and precise answers to your connekta problems</p>
-      </div>
-      <div class="flex flex-col mb-8 md:mb-auto gap-3.5 items-center sm:max-w-md m-auto">
-        <img alt="team" class="w-6 h-6"
-          [src]="themeService.isDarkMode ? './assets/svgs/location.svg' : './assets/svgs/lightlocation.svg'">
-        <h1 class="flex gap-3 items-center m-auto text-md font-medium md:flex-col md:gap-2 ">Personalized answers
-        </h1>
-        <p class="font-light  dark:text-lightText  text-black2Color text-sm overflow-hidden text-center px-3">Cosmo will
-          specifically
-          give personalised answers to you queries</p>
-      </div>
-      <div class="flex flex-col mb-8 md:mb-auto gap-3.5 items-center sm:max-w-md m-auto">
-        <img alt="team" class="w-6 h-6"
-          [src]="themeService.isDarkMode ? './assets/svgs/trending.svg' : './assets/svgs/lighttrending.svg'">
-        <h1 class="flex gap-3 items-center m-auto text-md font-medium md:flex-col md:gap-2 ">Increased efficiency
-        </h1>
-        <p class="font-light  dark:text-lightText  text-black2Color text-sm overflow-hidden text-center px-3">Cosmo is
-          an
-          efficient
-          tool which will help increase your understanding about connekta</p>
-      </div>
-    </div>
-    <div class="">
+    <!-- <div class="">
       <p class="font-light  mt-4 dark:text-textColor  text-black2Color text-sm absolute bottom-4 left-10 ">© Copyright
         2023 Connekta
         Holdings
         Pty Ltd. All rights reserved.</p>
-    </div>
+    </div> -->
   </div>
 </div>
