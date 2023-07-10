@@ -75,6 +75,12 @@
       <input type="text" [(ngModel)]="message" (keydown)="onKeyDown($event)"
         class=" dark:text-lightText  text-black2Color  dark:bg-grey2 bg-textColor border border-greyColor border shadow-lg rounded-lg shadow-sm py-4 pl-10 pr-14 focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-[80%]"
         placeholder="Example: 'Explain quantum computing in simple terms'">
+      <span class="absolute inset-y-0  top-0 right-32 justify-end flex items-center cursor-pointer">
+        <img alt="team" class=" flex items-center" src="./assets/svgs/attachment.svg" (click)="fileInput.click()">
+        <input type="file" #fileInput hidden (change)="onFileSelected($event)">
+        <!-- <button (click)="startChatInput()" class="gradient-button px-2 py-3 rounded-md">
+        </button> -->
+      </span>
       <span class="absolute inset-y-0  top-0 right-20 justify-end flex items-center">
         <button (click)="startChatInput()" class="gradient-button px-2 py-3 rounded-md">
           <img alt="team" class="pl-2 flex items-center" src="./assets/svgs/send.svg">

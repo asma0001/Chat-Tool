@@ -28,4 +28,10 @@ export class ChatComponent {
       this.chatService.showComponent(true);
     }
   }
+
+  onFileSelected(event: any) {
+  this.chatService.selectedFile(event)
+
+  }
+
 }

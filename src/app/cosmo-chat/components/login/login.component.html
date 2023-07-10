@@ -1,0 +1,43 @@
+<div class="relative h-full  flex flex-col justify-center sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <form class="space-y-6" (ngSubmit)="onSubmit()">
+      <div class="">
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="Email" [(ngModel)]="email"
+          class="block w-full px-3 py-2 sm:text-sm appearance-none bg-transparent border-b border-white border-opacity-50 w-full text-white text-opacity-50 focus:outline-none  custom-autofill">
+      </div>
+
+      <div class="">
+        <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Password" [(ngModel)]="password"
+          class="block w-full px-3 py-2 sm:text-sm appearance-none bg-transparent border-b w-full border-white border-opacity-50 w-full text-white text-opacity-50 focus:outline-none">
+
+      </div>
+
+      <div class=" flex justify-center">
+        <button type="submit"
+          class="w-2/5 flex justify-center items-center py-2 px-4 font-bold text-base border border-transparent rounded-md shadow-sm text-darkBlueColor bg-white hover:bg-gradient-to-t hover:from-[#FF5555] hover:to-[#8255A1]  focus:outline-none">
+          Login
+        </button>
+
+      </div>
+      <div class="text-sm  flex justify-center">
+        <a href="#" class="font-medium text-white hover:gradient-text">
+          Forgot your password?
+        </a>
+      </div>
+    </form>
+
+    <div class="py-6">
+      <div class="relative">
+        <div class="relative flex justify-center text-sm">
+          <span class="px-2  text-white text-opacity-50">
+            Don't have an account?
+          </span>
+          <a href="#" class="px-2 font-bold gradient-text">
+            Register
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

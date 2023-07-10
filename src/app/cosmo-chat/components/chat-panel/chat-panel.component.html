@@ -181,9 +181,15 @@
   <div class="absolute bottom-0 left-0 w-full pl-10">
     <div class="dark:text-textColor text-black2Color w-full md:max-w-2xl lg:max-w-3xl 2xl:max-w-7xl 2xl:mx-auto">
       <div class="relative flex py-14">
-        <input type="text" [(ngModel)]=userMessage (keydown)="onKeyDown($event)"
+        <input type="text" [(ngModel)]="userMessage" (keydown)="onKeyDown($event)"
           class="relative dark:bg-grey2 bg-textColor border border-greyColor border-2 rounded-lg shadow-sm py-4 pl-10 pr-14 focus:outline-none  focus:border-transparent w-11/12"
           placeholder="">
+        <span class="absolute inset-y-0  top-0 right-32 justify-end flex items-center cursor-pointer">
+          <img alt="team" class=" flex items-center" src="./assets/svgs/attachment.svg" (click)="fileInput.click()">
+          <input type="file" #fileInput hidden (change)="onFileSelected($event)">
+          <!-- <button (click)="startChatInput()" class="gradient-button px-2 py-3 rounded-md">
+            </button> -->
+        </span>
         <span class="absolute inset-y-0  top-0 right-[4.7rem] 2xl:right-28 justify-end flex items-center">
           <button (click)="sendChatInput()" class="gradient-button px-2 py-3 rounded-md">
             <img alt="team" class="pl-2 flex items-center" src="./assets/svgs/send.svg">
@@ -191,10 +197,10 @@
         </span>
       </div>
     </div>
-    <p class="font-light  mt-4 dark:text-textColor  text-black2Color text-sm absolute bottom-4 left-10 ">© Copyright
+    <!-- <p class="font-light  mt-4 dark:text-textColor  text-black2Color text-sm absolute bottom-4 left-10 ">© Copyright
       2023 Connekta
       Holdings
-      Pty Ltd. All rights reserved.</p>
+      Pty Ltd. All rights reserved.</p> -->
 
   </div>
 </div>

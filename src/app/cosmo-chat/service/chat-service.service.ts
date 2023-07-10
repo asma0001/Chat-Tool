@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { ChatApiService } from './chat-api-service.service';
+import { ApiService } from './api-service.service';
 
 
 interface ChatObject {
@@ -9,6 +9,7 @@ interface ChatObject {
   chat: {
     type: string;
     message: string;
+    file?: File;
   }[];
 }
 
@@ -21,9 +22,10 @@ export class ChatServiceService {
   currentChatId: number = 0;
   message: string = '';
   activeChat: any;
+  file: File | undefined;
   loading = false;
 
-  constructor(private apiService: ChatApiService) { }
+  constructor(private apiService: ApiService) { }
 
   startChat() {
     this.currentChatId = this.generateChatId();
@@ -33,7 +35,8 @@ export class ChatServiceService {
       chat: [
         {
           type: 'user',
-          message: this.message
+          message: this.message,
+          file: this.file
         },
 
       ]
@@ -55,32 +58,42 @@ export class ChatServiceService {
   sendChat(): any {
     this.activeChat.chat.push({
       type: 'user',
-      message: this.message
+      message: this.message,
+      file: this.file
     });
     this.message = '';
     this.responseChat()
   }
 
   responseChat(): any {
-    this.loading = true
-    this.activeChat.chat.push({
-      type: 'cosmo',
-      message: "Hi! I am Cosmo, Your marketing assistant. How can i help you?"
-    });
-    this.loading = false;
-    // this.loading = true;
-    // this.apiService.sendMessage(this.activeChat.chat[this.activeChat.chat.length - 1].message).subscribe(
-    //   (response: any) => {
-    //     this.loading = false;
-    //     this.activeChat.chat.push({
-    //       type: 'cosmo',
-    //       message: response.message
-    //     });
-    //   },
-    //   (error: any) => {
-    //     console.error('API error:', error);
-    //   }
-    // );
+    // this.loading = true
+    // this.activeChat.chat.push({
+    //   type: 'cosmo',
+    //   message: "Hi! I am Cosmo, Your marketing assistant. How can i help you?"
+    // });
+    // this.loading = false;
+    this.loading = true;
+    const messageToSend = this.activeChat.chat[this.activeChat.chat.length - 1].message;
+    const chatId = this.activeChat.chatId;
+    console.log(chatId)
+    this.apiService.sendMessage(chatId, messageToSend).subscribe(
+      (response: any) => {
+        this.loading = false;
+        this.activeChat.chat.push({
+          type: 'cosmo',
+          message: response.message
+        });
+      },
+      (error: any) => {
+        console.error('API error:', error);
+      }
+    );
+  }
+
+  selectedFile(event: any) {
+    const file: File = event.target.files[0];
+    this.file = file
+    // this.chatService.file = file
   }
 
   // loadoldChat() {

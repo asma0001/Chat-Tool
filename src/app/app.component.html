@@ -7,28 +7,25 @@
     </svg>
   </button>
 
-  <app-sidebar [ngClass]="{ 'hidden': !isSidebarHidden }"
-    (toogleMode)="themeService.toggleDarkMode()" ></app-sidebar>
+  <app-sidebar [ngClass]="{ 'hidden': !isSidebarHidden }" (toogleMode)="themeService.toggleDarkMode()"></app-sidebar>
 
   <div class="relative flex flex-1  overflow-hidden  bg-black p-3 ">
 
     <div [ngClass]="{ 'ml-0': isSidebarHidden, 'ml-sidebar-width': !isSidebarHidden }"
       class="relative text-sm max-w-full  flex-1 flex-col overflow-hidden  dark:bg-darkBlueColor bg-textColor rounded-2xl  z-10 dark:z-0">
-
       <div class="absolute inset-0  bg-no-repeat bg-right-bottom opacity-100"
         style="background-image: url('./assets/watermark.png');"></div>
 
-      <app-chat-main *ngIf="showChatPanelComponent==false; else chatPanel"></app-chat-main>
       <!-- <app-chat *ngIf="!showChatPanelComponent"  ></app-chat> -->
+
+      <router-outlet></router-outlet>
+      <app-chat-main *ngIf="showChatPanelComponent==false; else chatPanel"></app-chat-main>
       <ng-template #chatPanel class="">
         <app-chat-panel></app-chat-panel>
       </ng-template>
+      <!-- <app-login></app-login> -->
+
 
     </div>
-
-    <!-- <p class="font-light pb-1 dark:text-textColor text-black2Color text-xs absolute bottom-0 ">© Copyright 2023
-      Connekta
-      Holdings
-      Pty Ltd. All rights reserved.</p> -->
   </div>
 </div>
