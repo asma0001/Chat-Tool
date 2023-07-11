@@ -1,31 +1,22 @@
-<div class="flex h-screen  ">
-
-  <button class="lg:hidden contents" id="hamburgerBtn" (click)="toggleSidebar()">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-      <path d="M3 12h18M3 6h18M3 18h18"></path>
-    </svg>
-  </button>
-
-  <app-sidebar [ngClass]="{ 'hidden': !isSidebarHidden }" (toogleMode)="themeService.toggleDarkMode()"></app-sidebar>
-
+<div class="relative flex flex-1  overflow-hidden  bg-black p-3 h-screen " [ngClass]="{'hidden':isLogedIn}">
+  <div class="relative text-sm max-w-full  flex-1 flex-col overflow-hidden  dark:bg-darkBlueColor bg-textColor rounded-2xl  z-10 dark:z-0">
+    <div class="absolute inset-0  bg-no-repeat bg-right-bottom opacity-100"
+      style="background-image: url('./assets/watermark.png');"></div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- <app-chat-main></app-chat-main> -->
+<div class="flex h-screen" [ngClass]="{'hidden':!isLogedIn}">
+  <app-sidebar  (toogleMode)="themeService.toggleDarkMode()"></app-sidebar>
   <div class="relative flex flex-1  overflow-hidden  bg-black p-3 ">
-
     <div [ngClass]="{ 'ml-0': isSidebarHidden, 'ml-sidebar-width': !isSidebarHidden }"
       class="relative text-sm max-w-full  flex-1 flex-col overflow-hidden  dark:bg-darkBlueColor bg-textColor rounded-2xl  z-10 dark:z-0">
       <div class="absolute inset-0  bg-no-repeat bg-right-bottom opacity-100"
         style="background-image: url('./assets/watermark.png');"></div>
-
-      <!-- <app-chat *ngIf="!showChatPanelComponent"  ></app-chat> -->
-
-      <router-outlet></router-outlet>
       <app-chat-main *ngIf="showChatPanelComponent==false; else chatPanel"></app-chat-main>
       <ng-template #chatPanel class="">
         <app-chat-panel></app-chat-panel>
       </ng-template>
-      <!-- <app-login></app-login> -->
-
-
     </div>
   </div>
 </div>

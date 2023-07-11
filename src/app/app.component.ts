@@ -12,11 +12,12 @@ export class AppComponent {
   showChatPanelComponent: boolean = false;
   isDarkMode = false;
   isSidebarHidden: boolean = true;
+  isLogedIn: boolean = localStorage.getItem("token") ? true : false
 
   constructor(public themeService: MyGlobalService, private chatService: ChatServiceService) {
     this.chatService.getChatState().subscribe(data => {
-      this.showChatPanelComponent=data.show;
- });
+      this.showChatPanelComponent = data.show;
+    });
   }
 
   showChatPanel() {

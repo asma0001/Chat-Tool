@@ -18,11 +18,10 @@ export class ChatComponent {
     this.chatService.message = this.message;
     this.chatService.startChat();
     this.chatService.showComponent(true);
-    // this.chatService.sendChat();
   }
 
   onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter')  {
+    if (event.key === 'Enter') {
       this.chatService.message = this.message;
       this.chatService.startChat();
       this.chatService.showComponent(true);
@@ -30,8 +29,7 @@ export class ChatComponent {
   }
 
   onFileSelected(event: any) {
-  this.chatService.selectedFile(event)
-
+    this.message = event.target.files[0].name;
+    this.chatService.selectedFile(event)
   }
-
 }

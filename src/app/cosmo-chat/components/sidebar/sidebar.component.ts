@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { MyGlobalService } from '../../service/my-global-service.service';
 import { ChatServiceService } from '../../service/chat-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +13,7 @@ export class SidebarComponent {
   allChatList: any[] = this.chatService.chatArray;
   isDarkMode: boolean;
 
-  constructor(public themeService: MyGlobalService, private chatService: ChatServiceService) {
+  constructor(public themeService: MyGlobalService, private chatService: ChatServiceService,private router:Router) {
     this.isDarkMode = this.themeService.isDarkMode;
   }
   startChat() {
@@ -22,5 +23,9 @@ export class SidebarComponent {
     this.chatService.activeChat = chat;
     this.chatService.currentChatId = chat.chatId;
     this.chatService.showComponent(true);
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
