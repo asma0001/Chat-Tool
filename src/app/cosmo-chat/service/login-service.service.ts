@@ -39,9 +39,10 @@ export class LoginService{
     );
   }
 
-  getProfileData(): any {
-    return this.profile;
-  }
+  // getProfileData(): any {
+  //   console.log(this.profile, "Profile")
+  //   return this.profile;
+  // }
 
 
   private redirectToChatComponent(): void {

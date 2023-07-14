@@ -29,7 +29,8 @@ export class ChatComponent {
   }
 
   onFileSelected(event: any) {
-    this.message = event.target.files[0].name;
+    const file: File = event.target.files[0];
+    this.message = file.name;
     this.chatService.selectedFile(event)
   }
 }

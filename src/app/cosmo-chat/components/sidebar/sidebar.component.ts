@@ -12,6 +12,7 @@ export class SidebarComponent {
   @Output() toogleMode = new EventEmitter<void>();
   allChatList: any[] = this.chatService.chatArray;
   isDarkMode: boolean;
+  isSideBarOpen: boolean = true;
 
   constructor(public themeService: MyGlobalService, private chatService: ChatServiceService,private router:Router) {
     this.isDarkMode = this.themeService.isDarkMode;
@@ -27,5 +28,9 @@ export class SidebarComponent {
   logout(){
     localStorage.clear();
     this.router.navigate(['/login']);
+  }
+
+  toggleOpen(): void {
+    this.isSideBarOpen = !this.isSideBarOpen;
   }
 }

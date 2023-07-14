@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MyGlobalService } from '../../service/my-global-service.service';
 import { ChatServiceService } from '../../service/chat-service.service';
 
@@ -6,11 +6,17 @@ import { ChatServiceService } from '../../service/chat-service.service';
   selector: 'app-chat-panel',
   templateUrl: './chat-panel.component.html',
   styleUrls: ['./chat-panel.component.css']
+
 })
+
 export class ChatPanelComponent {
   isDarkMode: boolean;
   userMessage: string = '';
   activeChat: any = this.chatService.activeChat;
+
+
+@ViewChild('fileInput') fileInput: any;
+
   constructor(public themeService: MyGlobalService, public chatService: ChatServiceService) {
     this.isDarkMode = this.themeService.isDarkMode;
     this.chatService.getChatState().subscribe(data => {
@@ -24,7 +30,7 @@ export class ChatPanelComponent {
   }
 
   onKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter')  {
+    if (event.key === 'Enter') {
       this.chatService.message = this.userMessage;
       this.chatService.sendChat();
       this.userMessage = ''
@@ -52,9 +58,12 @@ export class ChatPanelComponent {
   //     }, 0);
   //   }
   // }
-
   onFileSelected(event: any) {
-    this.userMessage =event.target.files[0].name;
+debugger
+    event.preventDefault()
+    const file: File = event.target.files[0];
+    this.userMessage = file.name;
     this.chatService.selectedFile(event);
-    }
+    this.fileInput.nativeElement.value = '';
+  }
 }

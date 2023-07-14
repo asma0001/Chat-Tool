@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ApiService } from './api-service.service';
 import { LoginService } from './login-service.service';
@@ -6,6 +6,7 @@ import { LoginService } from './login-service.service';
 
 interface ChatObject {
   chatId: number;
+  // user: {}
   title: string;
   chat: {
     type: string;
@@ -25,15 +26,22 @@ export class ChatServiceService {
   activeChat: any;
   file: File | undefined;
   loading = false;
+  isFileSelected = false
+  profile: any = {};
 
-  constructor(private apiService: ApiService , private loginService:LoginService) {
-    console.log(this.loginService.getProfileData(),"profile")
-   }
+  constructor(private apiService: ApiService, private loginService: LoginService) {
+    // const profileData =  loginService.getProfileData();
+    // console.log(profileData);
+    this.getProfileData()
+  }
 
   startChat() {
+    console.log(this.getProfileData());
+
     this.currentChatId = this.generateChatId();
     const chatObject: ChatObject = {
       chatId: this.currentChatId,
+      // user: this.getProfileData(),
       title: this.message,
       chat: [
         {
@@ -46,14 +54,14 @@ export class ChatServiceService {
     };
     this.chatArray.push(chatObject);
     this.activeChat = { ...chatObject };
-    if (!this.file) {
+    if (this.isFileSelected) {
+      this.uploadFile();
+    } else {
       this.responseChat()
     }
-    this.uploadFile();
 
     console.log(chatObject, "messages")
   }
-
 
   generateChatId(): number {
     const timestamp = new Date().getTime();
@@ -69,17 +77,15 @@ export class ChatServiceService {
       file: this.file
     });
     this.message = '';
-    this.responseChat()
-    this.uploadFile()
+    if (this.isFileSelected) {
+      this.uploadFile();
+    } else {
+      this.responseChat()
+    }
+
   }
 
   responseChat(): any {
-    // this.loading = true
-    // this.activeChat.chat.push({
-    //   type: 'cosmo',
-    //   message: "Hi! I am Cosmo, Your marketing assistant. How can i help you?"
-    // });
-    // this.loading = false;
     const messageToSend = this.activeChat.chat[this.activeChat.chat.length - 1].message;
     const chatId = this.activeChat.chatId;
     console.log(chatId)
@@ -89,16 +95,21 @@ export class ChatServiceService {
           type: 'cosmo',
           message: response.message
         });
+        this.isFileSelected = false
       },
       (error: any) => {
+        this.isFileSelected = false
         console.error('API error:', error);
       }
     );
   }
+
   selectedFile(event: any) {
     const file: File = event.target.files[0];
-    this.file = file
+    this.file = file;
+    this.isFileSelected = true;
   }
+
   uploadFile(): void {
     if (this.file) {
       this.apiService.sendFile(this.file).subscribe(
@@ -108,12 +119,25 @@ export class ChatServiceService {
             type: 'cosmo',
             message: response.message
           });
+          this.isFileSelected = false
         },
         (error: any) => {
           console.error('API error:', error);
+          this.isFileSelected = false
         }
       );
-    }else null
+    } else null
+  }
+  getProfileData(): void {
+    this.apiService.getProfile().subscribe(
+      (response: any) => {
+        this.profile = response
+        console.log(response,"Profile Dataata")
+      },
+      (error: any) => {
+        console.error('API error:', error);
+      }
+    );
   }
 
 
