@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, NgModule, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../service/login-service.service';
+import { MyGlobalService } from '../../service/my-global-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,9 @@ import { LoginService } from '../../service/login-service.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
-  constructor(private loginService: LoginService) {
+  isDarkMode: boolean;
+  constructor(public themeService: MyGlobalService, private loginService: LoginService) {
+    this.isDarkMode = this.themeService.isDarkMode;
   }
   onSubmit() {
     this.loginService.email= this.email;

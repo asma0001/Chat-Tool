@@ -112,7 +112,8 @@ export class ChatServiceService {
 
   uploadFile(): void {
     if (this.file) {
-      this.apiService.sendFile(this.file).subscribe(
+      const chatId = this.activeChat.chatId;
+      this.apiService.sendFile(this.file,chatId).subscribe(
         (response: any) => {
           this.loading = false;
           this.activeChat.chat.push({

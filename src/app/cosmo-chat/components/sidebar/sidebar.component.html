@@ -7,18 +7,18 @@
 </div> -->
 <!-- [ngClass]="{'hidden': !isSidebarHidden}"  -->
 
-<main id="sidebar"
-[ngClass]="{'w-72 justify-between': isSideBarOpen, 'w-20 justify-start': !isSideBarOpen}"
+<main id="sidebar" [ngClass]="{'w-72 justify-between': isSideBarOpen, 'w-20 justify-start': !isSideBarOpen}"
   class=" flex flex-col  w-72   md:z-20  h-full  dark:bg-darkBlueColor bg-textColor p-2">
   <div>
     <div class="px-2 py-5">
-      <img (click)="toggleOpen()" [ngClass]="{'rotate-180': !isSideBarOpen}" [src]="themeService.isDarkMode  ? './assets/svgs/connectaSvg.svg' : './assets/svgs/lightconnectasvg.svg'"
+      <img (click)="toggleOpen()" [ngClass]="{'rotate-180': !isSideBarOpen}"
+        [src]="themeService.isDarkMode  ? './assets/svgs/connectaSvg.svg' : './assets/svgs/lightconnectasvg.svg'"
         alt="Connecta Logo">
     </div>
 
     <div class="p-2">
       <div
-      [ngClass]="{'pl-4 py-3 border-greyColor border rounded-lg dark:bg-greyColor bg-textColor': isSideBarOpen, 'pl-2 py-0 border-none': !isSideBarOpen}"
+        [ngClass]="{'pl-4 py-3 border-greyColor border rounded-lg dark:bg-greyColor bg-textColor': isSideBarOpen, 'pl-2 py-0 border-none': !isSideBarOpen}"
         class="flex items-center  shadow-md shadow-gray-400 dark:shadow-none">
         <img alt="team" class="w-8 h-8  object-cover object-center flex-shrink-0 rounded-full mr-4"
           src="./assets/svgs/connectaIcon.svg">
@@ -30,9 +30,8 @@
     </div>
     <div class="flex-col flex-1  px-2">
       <div class="flex flex-col   dark:text-textColor  text-black2Color text-sm font-normal">
-        <p class="ml-4 font-medium text-base pb-2 "[ngClass]="{'hidden': !isSideBarOpen}">To maintain history</p>
-        <div
-        [ngClass]="{'px-3 py-0': !isSideBarOpen}"
+        <p class="ml-4 font-medium text-base pb-2 " [ngClass]="{'hidden': !isSideBarOpen}">To maintain history</p>
+        <div [ngClass]="{'px-3 py-0': !isSideBarOpen}"
           class="flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
           <img alt="team" class="mr-4"
             [src]="themeService.isDarkMode ? './assets/svgs/upgrade.svg' : './assets/svgs/lightupgrade.svg'">
@@ -50,7 +49,8 @@
         <div class="py-2">
           <button (click)="startChat()"
             class="gradient-button flex p-3 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md  h-11 flex-shrink-0 flex-grow w-full">
-            <img alt="team" class="h-4 w-5" src="./assets/svgs/addIcon.svg"><span [class.hidden]="!isSideBarOpen">Start a new chat</span></button>
+            <img alt="team" class="h-4 w-5" src="./assets/svgs/addIcon.svg"><span [class.hidden]="!isSideBarOpen">Start
+              a new chat</span></button>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
   </div>
   <div class="border-t border-white/20 ">
     <div class="flex flex-col  py-2 dark:text-textColor text-black2Color text-sm font-normal">
-      <div
+      <div [ngClass]="{'pl-6': !isSideBarOpen}"
         class="flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
         <!-- <div class="flex pl-8 pt-2 pb-6"> -->
         <img alt="team" class="mr-4"
@@ -66,19 +66,22 @@
         <p [ngClass]="{'scale-0': !isSideBarOpen}" class="">Clear all conversations </p>
       </div>
       <div (click)="toogleMode.emit()"
-        class="shadowDiv flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
+      [ngClass]="{'pl-6': !isSideBarOpen}"
+        class="flex px-3 py-1 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
         <img alt="team" class="mr-4"
           [src]="themeService.isDarkMode ? './assets/svgs/light.svg' : './assets/svgs/Llight.svg'">
         <p [ngClass]="{'scale-0': !isSideBarOpen}"> Switch {{themeService.isDarkMode? 'Light Mode': 'Dark Mode'}} </p>
       </div>
 
       <div
+      [ngClass]="{'pl-6': !isSideBarOpen}"
         class="shadowDiv flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
         <img alt="team" class="mr-4"
           [src]="themeService.isDarkMode ? './assets/svgs/updates.svg' : './assets/svgs/lightupdate.svg'">
         <p [ngClass]="{'scale-0': !isSideBarOpen}" class="">Uptades & FAQ </p>
       </div>
       <div (click)="logout()"
+      [ngClass]="{'pl-6': !isSideBarOpen}"
         class="shadowDiv flex p-3 items-center  transition-colors duration-200  cursor-pointer text-sm dark:hover:bg-greyColor hover:bg-lightText rounded-md">
         <img alt="team" class="mr-4" src="./assets/svgs/logout.svg">
         <p [ngClass]="{'scale-0': !isSideBarOpen}" class="text-red">Log out </p>

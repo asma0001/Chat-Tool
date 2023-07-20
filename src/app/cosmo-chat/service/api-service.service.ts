@@ -46,10 +46,10 @@ export class ApiService {
  * @param file The file to send.
  * @returns An observable containing the response from the bot.
  */
-  sendFile(file: File): Observable<any> {
+  sendFile(file: File,chatId: number): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
-    // formData.append('userId', userId);
+    formData.append('chatId',  chatId.toString());
     return this.http.post(this.chatApiUrl + '/file', formData);
   }
   /**

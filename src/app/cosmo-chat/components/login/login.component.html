@@ -1,4 +1,10 @@
+<div class="flex justify-center pt-10">
+  <img
+    [src]="themeService.isDarkMode  ? './assets/svgs/connectaSvg.svg' : './assets/svgs/lightconnectasvg.svg'"
+    alt="Connecta Logo">
+</div>
 <div class="relative h-full  flex flex-col justify-center sm:px-6 lg:px-8">
+
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
     <form class="space-y-6" (ngSubmit)="onSubmit()">
       <div class="">
@@ -14,7 +20,7 @@
 
       <div class=" flex justify-center pt-2">
         <button type="submit"
-          class="w-2/5 flex justify-center items-center py-2 px-4 font-bold text-base border border-transparent rounded-md shadow-sm text-darkBlueColor bg-white hover:bg-gradient-to-t hover:from-[#FF5555] hover:to-[#8255A1]  focus:outline-none">
+          class="w-2/5 flex justify-center items-center py-2 px-4 font-bold text-base border border-transparent rounded-lg shadow-sm text-darkBlueColor bg-white hover:bg-gradient-to-t hover:from-[#FF5555] hover:to-[#8255A1]  focus:outline-none">
           Login
         </button>
 
